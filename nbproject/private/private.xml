@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Bank/BankEnterprise.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Enterprise/DonationEnterprise.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/SystemAdmin/ManageProfileJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/Recipient/CheckInboxJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/Recipient/CheckAccountBalanceJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/EnterpriseAdmin/EnterpriseAdminWorkAreaJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/GovernmentEnterprise/RegionDirectory.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Organization/Organization.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/GovernmentEnterprise/Village.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Person/Person.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/EnrollmentOrganization/ProcessEnrollmentRequestJpanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Enterprise/EnterpriseDirectory.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Utility/AddressConverter.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/LocalAgent/LocalAgentRegistrationJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Role/FieldStaffRole.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/Recipient/ConfigureProfileJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/ViewPovertyRateJFrame.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/GovernmentEnterprise/Government.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/MainJFrame.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/SystemAdmin/SystemAdminWorkAreaJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Enterprise/Enterprise.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Recipient/RecipientLocation.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/Donor/LocalAgentComparator.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/AccountsManager/AccountManagerWorkAreaJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/Recipient/ForgotPasswordJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Utility/Validation.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/MobileEnterprise/MobileEnterpriseAdminWorkAreaJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/GovernmentEnterprise/Region.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/Recipient/WithdrawMoneyJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/WorkQueue/EnrollmentWorkRequest.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/UserAccount/UserAccount.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/Recipient/AcknowledgeDonorJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/GetComponentJFrame.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/Donor/DonateMoneyJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/Recipient/RecipientWorkAreaJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/FieldStaff/RegisterRecipientJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Recipient/Profile.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Bank/LocalEnterpriseBankAccount.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Bank/BankAccount.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Bank/DonorEnterpriseBankAccount.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/LocalAgent/LocalAgentWorkAreaJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/EnrollmentOrganization/SeniorStaffWorkAreaJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/HelloWorld.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/ConfigureABusiness.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/userInterface/Government/GovernmentAdminJPanel.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/Recipient/Recipient.java</file>
+            <file>file:/C:/Documents%20and%20Settings/JJPL/My%20Documents/NetBeansProjects/EradicatePoverty/src/Business/DB4OUtil/DB4OUtil.java</file>
+        </group>
+    </open-files>
+</project-private>

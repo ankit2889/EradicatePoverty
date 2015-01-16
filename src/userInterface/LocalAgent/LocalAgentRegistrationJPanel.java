@@ -1,0 +1,612 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package userInterface.LocalAgent;
+
+import Business.Ecosystem;
+import Business.Enterprise.Enterprise;
+import Business.GovernmentEnterprise.Government;
+import Business.GovernmentEnterprise.Region;
+import Business.GovernmentEnterprise.Village;
+import Business.MobileEnterprise.MobileEnterprise;
+import Business.Network.Network;
+import Business.Utility.Validation;
+import Business.WorkQueue.AgentRegistrationWorkRequest;
+//import business.utility.SendEmail;
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+/**
+ *
+ * @author JJPL
+ */
+public class LocalAgentRegistrationJPanel extends javax.swing.JPanel {
+
+    /**
+     * Creates new form LocalAgentRegistrationJPanel
+     */
+    
+    private JPanel userProcessContainer;
+    private BufferedImage bufferedImg=null;
+    private String path;
+    private Ecosystem business;
+    private Government government;
+    private MobileEnterprise mobileEnterprise;
+    public LocalAgentRegistrationJPanel(JPanel upc,Ecosystem business) {
+        initComponents();
+        this.userProcessContainer =upc;
+        hideAllLabels();
+        this.business=business;
+        populateStateComboBox();
+    }
+    
+    
+    public void hideAllLabels()
+    {
+        outletNameValidatorJlbl.setText("");
+        outletYearValidatorJlbl3.setText("");
+        firstNameValidatorJlbl.setText("");
+        lastNameValidatorJlbl.setText("");
+        villageValidatorJlbl.setText("");
+        idNumberValidatorJlbl.setText("");
+        emailAddressValidatorJlbl1.setText("");
+        
+                
+    }
+    
+    public void populateStateComboBox()
+    {
+        stateComboBox.removeAllItems();
+        for(Network network:business.getRootNetwork().getSubNetworkDirectory().getNetworkList())
+          {   System.out.println("Network"+network);
+            for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList())
+            {
+                System.out.println("Enterprise"+enterprise);
+                if(enterprise instanceof Government)
+                {
+                    government = (Government)enterprise;
+                    for(Region region:government.getRegionDirectory().getRegionList())
+                    {
+                        stateComboBox.addItem(region);
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    public boolean validateForm()
+    {
+        
+        boolean errorFlag=false;
+        if(!Validation.validateTextFieldsForNonEmpty(outletNameJtext)||outletNameJtext.getText().trim().equalsIgnoreCase("Name of outlet:"))
+        {
+            outletNameValidatorJlbl.setText("Please enter outlet name");
+            errorFlag=true;
+            
+        }
+        
+        
+        if(!Validation.validateTextFieldsForNonEmpty(firstNameJtext)||firstNameJtext.getText().trim().equalsIgnoreCase("First name:"))
+        {
+            firstNameValidatorJlbl.setText("Please enter first name");
+            errorFlag=true;
+            
+        }
+        
+        if(!Validation.validateTextFieldsForNonEmpty(lastNameJtext)||lastNameJtext.getText().trim().equalsIgnoreCase("Last name:"))
+        {
+            lastNameValidatorJlbl.setText("Please enter last name");
+            errorFlag=true;
+            
+        }
+       
+        if(!Validation.validateTextFieldsForNonEmpty(idNumberJtext)||idNumberJtext.getText().trim().equalsIgnoreCase("Id number:"))
+        {
+            idNumberValidatorJlbl.setText("Please enter "+idTypeComboBox.getSelectedItem()+" number");
+            errorFlag=true;
+            
+        }
+        
+        if(!Validation.validateTextFieldsForNonEmpty(emailAddressJtext)||emailAddressJtext.getText().trim().equalsIgnoreCase("Email address:"))
+        {
+            emailAddressValidatorJlbl1.setText("Please enter email address");
+            errorFlag=true;
+            
+        }
+        
+        else if(!Validation.validateTextFieldsForEmailId(emailAddressJtext))
+        {
+            emailAddressValidatorJlbl1.setText("Please enter valid email id");
+            errorFlag=true;
+            
+        }
+        
+        if(String.valueOf(villageComboBox.getSelectedItem()).equals(""))
+        {
+            villageValidatorJlbl.setText("Please select state and then corresponding village");
+            errorFlag=true;
+        }
+        
+        
+        
+        return errorFlag;
+        
+        
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        outletNameJtext = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        outletTypeComboBox = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
+        outletNameValidatorJlbl = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        outletYearValidatorJlbl3 = new javax.swing.JLabel();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        browseImageJbutton = new javax.swing.JButton();
+        certificateImage = new javax.swing.JLabel();
+        jLayeredPane3 = new javax.swing.JLayeredPane();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        lastNameJtext = new javax.swing.JTextField();
+        firstNameJtext = new javax.swing.JTextField();
+        idTypeComboBox = new javax.swing.JComboBox();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        villageComboBox = new javax.swing.JComboBox();
+        jLabel18 = new javax.swing.JLabel();
+        stateComboBox = new javax.swing.JComboBox();
+        emailAddressJtext = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        idNumberJtext = new javax.swing.JTextField();
+        idNumberValidatorJlbl = new javax.swing.JLabel();
+        villageValidatorJlbl = new javax.swing.JLabel();
+        firstNameValidatorJlbl = new javax.swing.JLabel();
+        lastNameValidatorJlbl = new javax.swing.JLabel();
+        emailAddressValidatorJlbl1 = new javax.swing.JLabel();
+        registerAgentJbutton = new javax.swing.JButton();
+
+        setAutoscrolls(true);
+        setMinimumSize(new java.awt.Dimension(690, 853));
+        setPreferredSize(new java.awt.Dimension(690, 853));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("M-PESA AGENT  REGISTRATION FORM");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, 31));
+
+        jLayeredPane1.setBackground(new java.awt.Color(204, 204, 204));
+        jLayeredPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+        jLayeredPane1.setForeground(new java.awt.Color(255, 255, 255));
+        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLayeredPane1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 28, 600, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Outlet Information");
+        jLayeredPane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        jLabel3.setText(">>  Year of establishment:");
+        jLayeredPane1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 150, 30));
+
+        outletNameJtext.setForeground(new java.awt.Color(204, 204, 204));
+        outletNameJtext.setText("Name of outlet:");
+        outletNameJtext.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                outletNameJtextFocusGained(evt);
+            }
+        });
+        jLayeredPane1.add(outletNameJtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 170, 30));
+
+        jLabel4.setText(">>   Name of outlet:");
+        jLayeredPane1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 110, 30));
+
+        outletTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hospital", "Bank", "Petrol Pump", "Hotel", "Clinic", "Supermarket", "Convenience Store" }));
+        jLayeredPane1.add(outletTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 170, 30));
+
+        jLabel5.setText(">>   Type of outlet:");
+        jLayeredPane1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 110, 30));
+
+        outletNameValidatorJlbl.setForeground(new java.awt.Color(255, 0, 0));
+        outletNameValidatorJlbl.setText("jLabel6");
+        jLayeredPane1.add(outletNameValidatorJlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 290, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Before 2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014" }));
+        jLayeredPane1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 80, 30));
+
+        outletYearValidatorJlbl3.setForeground(new java.awt.Color(255, 0, 0));
+        outletYearValidatorJlbl3.setText("jLabel8");
+        jLayeredPane1.add(outletYearValidatorJlbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 300, 20));
+
+        add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 500, 210));
+
+        jLayeredPane2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("Outlet documents");
+
+        jLabel14.setText(">>  Certificate of Incorporation:");
+
+        browseImageJbutton.setText("Browse");
+        browseImageJbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseImageJbuttonActionPerformed(evt);
+            }
+        });
+
+        certificateImage.setForeground(new java.awt.Color(204, 204, 204));
+        certificateImage.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+
+        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
+        jLayeredPane2.setLayout(jLayeredPane2Layout);
+        jLayeredPane2Layout.setHorizontalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel9))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(certificateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(browseImageJbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
+            .addComponent(jSeparator2)
+        );
+        jLayeredPane2Layout.setVerticalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 113, Short.MAX_VALUE))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(certificateImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                .addComponent(browseImageJbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
+        );
+        jLayeredPane2.setLayer(jSeparator2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(browseImageJbutton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(certificateImage, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        add(jLayeredPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 510, 210));
+
+        jLayeredPane3.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+        jLayeredPane3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLayeredPane3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 27, 1016, 10));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setText("Admininstrator Information");
+        jLayeredPane3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 6, -1, -1));
+
+        jLabel12.setText(">> Select Village:");
+        jLayeredPane3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 100, 30));
+
+        lastNameJtext.setForeground(new java.awt.Color(204, 204, 204));
+        lastNameJtext.setText("Last name:");
+        lastNameJtext.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                lastNameJtextFocusGained(evt);
+            }
+        });
+        lastNameJtext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameJtextActionPerformed(evt);
+            }
+        });
+        jLayeredPane3.add(lastNameJtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 158, 32));
+
+        firstNameJtext.setForeground(new java.awt.Color(204, 204, 204));
+        firstNameJtext.setText("First name:");
+        firstNameJtext.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                firstNameJtextFocusGained(evt);
+            }
+        });
+        firstNameJtext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameJtextActionPerformed(evt);
+            }
+        });
+        jLayeredPane3.add(firstNameJtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 158, 32));
+
+        idTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Passport", "Driving License" }));
+        jLayeredPane3.add(idTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 158, 32));
+
+        jLabel15.setText(">>  Last Name:");
+        jLayeredPane3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 90, 30));
+
+        jLabel16.setText(">>  Id type:");
+        jLayeredPane3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 142, 30));
+
+        jLabel17.setText(">> Email address:");
+        jLayeredPane3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 150, 30));
+
+        jLayeredPane3.add(villageComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 240, 170, 40));
+
+        jLabel18.setText(">>  Firstl Name:");
+        jLayeredPane3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, 30));
+
+        stateComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stateComboBoxActionPerformed(evt);
+            }
+        });
+        jLayeredPane3.add(stateComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 170, 40));
+
+        emailAddressJtext.setForeground(new java.awt.Color(204, 204, 204));
+        emailAddressJtext.setText("Email address:");
+        emailAddressJtext.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                emailAddressJtextFocusGained(evt);
+            }
+        });
+        emailAddressJtext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailAddressJtextActionPerformed(evt);
+            }
+        });
+        jLayeredPane3.add(emailAddressJtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 158, 33));
+
+        jLabel20.setText(">> Select state:");
+        jLayeredPane3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 142, 30));
+
+        jLabel21.setText(">> Id number:");
+        jLayeredPane3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 90, 30));
+
+        idNumberJtext.setForeground(new java.awt.Color(204, 204, 204));
+        idNumberJtext.setText("Id number:");
+        idNumberJtext.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                idNumberJtextFocusGained(evt);
+            }
+        });
+        idNumberJtext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idNumberJtextActionPerformed(evt);
+            }
+        });
+        jLayeredPane3.add(idNumberJtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, 158, 33));
+
+        idNumberValidatorJlbl.setForeground(new java.awt.Color(255, 0, 0));
+        idNumberValidatorJlbl.setText("jLabel8");
+        jLayeredPane3.add(idNumberValidatorJlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, 300, 20));
+
+        villageValidatorJlbl.setForeground(new java.awt.Color(255, 0, 0));
+        villageValidatorJlbl.setText("jLabel8");
+        jLayeredPane3.add(villageValidatorJlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 290, 300, 20));
+
+        firstNameValidatorJlbl.setForeground(new java.awt.Color(255, 0, 0));
+        firstNameValidatorJlbl.setText("jLabel8");
+        jLayeredPane3.add(firstNameValidatorJlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 300, 20));
+
+        lastNameValidatorJlbl.setForeground(new java.awt.Color(255, 0, 0));
+        lastNameValidatorJlbl.setText("jLabel8");
+        jLayeredPane3.add(lastNameValidatorJlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 300, 20));
+
+        emailAddressValidatorJlbl1.setForeground(new java.awt.Color(255, 0, 0));
+        emailAddressValidatorJlbl1.setText("jLabel8");
+        jLayeredPane3.add(emailAddressValidatorJlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 300, 20));
+
+        add(jLayeredPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 1020, 370));
+
+        registerAgentJbutton.setText("REGISTER>>>");
+        registerAgentJbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerAgentJbuttonActionPerformed(evt);
+            }
+        });
+        add(registerAgentJbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 690, 110, 40));
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void browseImageJbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseImageJbuttonActionPerformed
+        // TODO add your handling code here:
+
+        JFileChooser jFileChooser=new JFileChooser();
+        jFileChooser.showOpenDialog(null);
+        try
+        {
+            bufferedImg = ImageIO.read(jFileChooser.getSelectedFile());
+            File file=jFileChooser.getSelectedFile();
+            path=file.getPath();
+            ImageIcon imgIco=new ImageIcon(bufferedImg);
+            certificateImage.setIcon(new ImageIcon(imgIco.getImage().getScaledInstance(212, 122, java.awt.Image.SCALE_FAST)));
+
+        } catch (IOException ex)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a valid file", "INVALID", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_browseImageJbuttonActionPerformed
+
+    private void firstNameJtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameJtextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameJtextActionPerformed
+
+    private void lastNameJtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameJtextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameJtextActionPerformed
+
+    private void emailAddressJtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailAddressJtextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailAddressJtextActionPerformed
+
+    private void idNumberJtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idNumberJtextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idNumberJtextActionPerformed
+
+    private void outletNameJtextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_outletNameJtextFocusGained
+        // TODO add your handling code here:
+        
+        outletNameJtext.setText("");
+        outletNameJtext.setForeground(Color.BLACK);
+    }//GEN-LAST:event_outletNameJtextFocusGained
+
+    private void firstNameJtextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_firstNameJtextFocusGained
+        // TODO add your handling code here:
+        firstNameJtext.setText("");
+        firstNameJtext.setForeground(Color.BLACK);
+    }//GEN-LAST:event_firstNameJtextFocusGained
+
+    private void registerAgentJbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAgentJbuttonActionPerformed
+        // TODO add your handling code here:
+        
+        hideAllLabels();
+        
+        if(!validateForm())
+        {
+            AgentRegistrationWorkRequest workRequest = new AgentRegistrationWorkRequest();
+            workRequest.setAgentFirstName(firstNameJtext.getText().trim());
+            workRequest.setAgentLastName(lastNameJtext.getText().trim());
+            workRequest.setAgentRegion((Region)stateComboBox.getSelectedItem());
+            workRequest.setAgentVillage((Village)villageComboBox.getSelectedItem());
+            workRequest.setCertificatePath(path);
+            workRequest.setOutletName(outletNameJtext.getText().trim());
+            workRequest.setOutletType(String.valueOf(outletTypeComboBox.getSelectedItem()));
+            workRequest.setIdType(String.valueOf(idTypeComboBox.getSelectedItem()));
+            workRequest.setIdNumber(idNumberJtext.getText().trim());
+            workRequest.setEmailAddress(emailAddressJtext.getText().trim());
+            workRequest.setStatus("Requested");
+            
+            
+            
+            for(Network network:business.getRootNetwork().getSubNetworkDirectory().getNetworkList())
+            {
+                for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList())
+                {
+                    if(enterprise instanceof MobileEnterprise)
+                        {
+                            mobileEnterprise = (MobileEnterprise)enterprise;
+                            mobileEnterprise.getWorkQueue().getWorkRequestList().add(workRequest);
+                        }
+                }
+            
+            }
+            
+//            if(SendEmail.SendEmail(emailAddressJtext.getText().trim(),"Login details","password"))
+            JOptionPane.showMessageDialog(null,"Your request is submitted successfully.\n You will receive confirmation mail in 2-3 business days.\n Thanks for signing up.","Request submitted",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_registerAgentJbuttonActionPerformed
+
+    private void lastNameJtextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lastNameJtextFocusGained
+        // TODO add your handling code here:
+        
+        lastNameJtext.setText("");
+        lastNameJtext.setForeground(Color.black);
+    }//GEN-LAST:event_lastNameJtextFocusGained
+
+    private void idNumberJtextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idNumberJtextFocusGained
+        // TODO add your handling code here:
+        
+        idNumberJtext.setText("");
+        idNumberJtext.setForeground(Color.black);
+    }//GEN-LAST:event_idNumberJtextFocusGained
+
+    private void emailAddressJtextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailAddressJtextFocusGained
+        // TODO add your handling code here:
+        
+        emailAddressJtext.setText("");
+        emailAddressJtext.setForeground(Color.black);
+    }//GEN-LAST:event_emailAddressJtextFocusGained
+
+    private void stateComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateComboBoxActionPerformed
+        // TODO add your handling code here:
+        
+        Region selectedRegion =(Region) stateComboBox.getSelectedItem();
+        populateVillageComboBox(selectedRegion);
+    }//GEN-LAST:event_stateComboBoxActionPerformed
+
+    
+    public void populateVillageComboBox(Region region)
+    {
+        villageComboBox.removeAllItems();
+        for(Village village:region.getVillageList())
+        {
+            villageComboBox.addItem(village);
+        }
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton browseImageJbutton;
+    private javax.swing.JLabel certificateImage;
+    private javax.swing.JTextField emailAddressJtext;
+    private javax.swing.JLabel emailAddressValidatorJlbl1;
+    private javax.swing.JTextField firstNameJtext;
+    private javax.swing.JLabel firstNameValidatorJlbl;
+    private javax.swing.JTextField idNumberJtext;
+    private javax.swing.JLabel idNumberValidatorJlbl;
+    private javax.swing.JComboBox idTypeComboBox;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JLayeredPane jLayeredPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField lastNameJtext;
+    private javax.swing.JLabel lastNameValidatorJlbl;
+    private javax.swing.JTextField outletNameJtext;
+    private javax.swing.JLabel outletNameValidatorJlbl;
+    private javax.swing.JComboBox outletTypeComboBox;
+    private javax.swing.JLabel outletYearValidatorJlbl3;
+    private javax.swing.JButton registerAgentJbutton;
+    private javax.swing.JComboBox stateComboBox;
+    private javax.swing.JComboBox villageComboBox;
+    private javax.swing.JLabel villageValidatorJlbl;
+    // End of variables declaration//GEN-END:variables
+}
